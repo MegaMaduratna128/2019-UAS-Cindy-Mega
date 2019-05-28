@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/song_detail_main"
+    android:id="@+id/sport_detail_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/musik3"
@@ -12,7 +12,7 @@
         android:id="@+id/imgSportDetail"
         android:layout_width="@dimen/tile_size_large"
         android:layout_height="200dp"
-        android:contentDescription="@string/artwork"
+        android:contentDescription="@string/picturesport"
         android:layout_marginLeft="28dp"/>
 
     <!--<TextView-->
@@ -35,7 +35,7 @@
         tools:text="Tropical House" />
 
     <TextView
-        android:id="@+id/price_detail"
+        android:id="@+id/deskripsi_detail"
         style="@style/TextAppearance.AppCompat.Medium"
         android:layout_width="370dp"
         android:layout_height="250dp"

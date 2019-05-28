@@ -31,10 +31,10 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
 
         context = SongDetailView.this;
 
-        main = (LinearLayout) findViewById(R.id.song_detail_main);
-        strSportThumb = (ImageView) findViewById(R.id.imgArtworkDetail);
-        txtSportName = (TextView) findViewById(R.id.artist_name_detail);
-        txtDescription = (TextView) findViewById(R.id.genre_detail);
+        main = (LinearLayout) findViewById(R.id.sport_detail_main);
+        strSportThumb = (ImageView) findViewById(R.id.imgSportDetail);
+        txtSportName = (TextView) findViewById(R.id.judul_detail);
+        txtDescription = (TextView) findViewById(R.id.deskripsi_detail);
 
         try {
             displaySport((Sport) getIntent().getSerializableExtra("sport"));
