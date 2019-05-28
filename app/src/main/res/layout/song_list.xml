@@ -10,7 +10,7 @@
     android:background="@drawable/musik2">
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
-        android:id="@+id/listSongs"
+        android:id="@+id/listSports"
         android:layout_width="match_parent"
         android:layout_weight="1"
         android:visibility="gone"
@@ -20,7 +20,7 @@
         app:demo_layout_manager_type="linear_vertical" />
 
     <TextView
-        android:id="@+id/txtNoSongs"
+        android:id="@+id/txtNoSports"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
