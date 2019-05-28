@@ -22,22 +22,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fesia.mega.com.music.R;
+import fesia.mega.com.music.api.model.Sport;
 
 public class SongListView extends AppCompatActivity implements SongListContract.View {
 
     Context context;
     LinearLayout main;
     TextView txtNoSongs;
-    ShimmerRecyclerView listTracks;
+    ShimmerRecyclerView listSports;
 
-    private List<Track> dataTracks = new ArrayList<>();
+    private List<Sport> dataSports = new ArrayList<>();
     private SongAdapter adapter;
 
-    SongListPresenter presenter;
+//    SongListPresenter presenter;
 
-    public SongListView() {
-        presenter = new SongListPresenter(this);
-    }
+//    public SongListView() {
+//        presenter = new SongListPresenter(this);
+//    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,59 +49,59 @@ public class SongListView extends AppCompatActivity implements SongListContract.
 
         main = (LinearLayout) findViewById(R.id.song_list_main);
         txtNoSongs  = (TextView) findViewById(R.id.txtNoSongs);
-        listTracks = (ShimmerRecyclerView) findViewById(R.id.listSongs);
+        listSports = (ShimmerRecyclerView) findViewById(R.id.listSongs);
 
-        adapter = new SongAdapter(context, dataTracks);
+        adapter = new SongAdapter(context, dataSports);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        listTracks.setLayoutManager(mLayoutManager);
-        listTracks.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
-        listTracks.setItemAnimator(new DefaultItemAnimator());
-        listTracks.setAdapter(adapter);
+        listSports.setLayoutManager(mLayoutManager);
+        listSports.addItemDecoration(new DividerItemDecoration(context, DividerItemDecoration.VERTICAL));
+        listSports.setItemAnimator(new DefaultItemAnimator());
+        listSports.setAdapter(adapter);
     }
+
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.search, menu);
+//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+//        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+//        searchView.setQueryHint("Search for Songs, Artists & More");
+//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                search(query);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });
+//        return true;
+//    }
+
+//    public void search(final String strTerm) {
+//        txtNoSongs.setVisibility(View.GONE);
+//        listTracks.setVisibility(View.VISIBLE);
+//
+//        dataTracks.clear();
+//        adapter.notifyDataSetChanged();
+//
+//        setLoadingIndicator(true);
+//        listTracks.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                presenter.getSports(strTerm);
+//            }
+//        }, 2000);
+//    }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.search, menu);
-        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
-        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-        searchView.setQueryHint("Search for Songs, Artists & More");
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                search(query);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-        return true;
-    }
-
-    public void search(final String strTerm) {
-        txtNoSongs.setVisibility(View.GONE);
-        listTracks.setVisibility(View.VISIBLE);
-
-        dataTracks.clear();
-        adapter.notifyDataSetChanged();
-
-        setLoadingIndicator(true);
-        listTracks.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                presenter.getTracks(strTerm);
-            }
-        }, 2000);
-    }
-
-    @Override
-    public void displayTracks(List<Track> dataTracks) {
+    public void displaySport(List<Sport> dataSports) {
         setLoadingIndicator(false);
-        this.dataTracks.clear();
-        this.dataTracks.addAll(dataTracks);
+        this.dataSports.clear();
+        this.dataSports.addAll(dataSports);
         adapter.notifyDataSetChanged();
     }
 
@@ -113,9 +114,9 @@ public class SongListView extends AppCompatActivity implements SongListContract.
     @Override
     public void setLoadingIndicator(boolean isLoading) {
         if (isLoading) {
-            listTracks.showShimmerAdapter();
+            listSports.showShimmerAdapter();
         } else {
-            listTracks.hideShimmerAdapter();
+            listSports.hideShimmerAdapter();
         }
     }
 }
