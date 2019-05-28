@@ -67,18 +67,17 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
             getSupportActionBar().setTitle(sport.getStrSport());
         }
 
-        String strSportThumb = sport.getStrSportThumb();
-        Glide.with(context).load(artworkUrl).placeholder(R.drawable.ic_logo).into(imgArtwork);
+        String artworkUrl = sport.getStrSportThumb();
+        Glide.with(context).load(artworkUrl).placeholder(R.drawable.ic_logo).into(strSportThumb);
 
-        txtArtistName.setText(sport.getArtistName());
-        txtGenre.setText(sport.getPrimaryGenreName());
-        txtPrice.setText(String.format("US $ %s", String.valueOf(sport.getTrackPrice())));
+        txtSportName.setText(sport.getStrSport());
+        txtDescription.setText(sport.getStrSportDescription());
 
-        MediaController mediaController = new MediaController(this);
-        mediaController.setAnchorView(videoView);
-        Uri video = Uri.parse(sport.getPreviewUrl());
-        videoView.setMediaController(mediaController);
-        videoView.setVideoURI(video);
-        videoView.start();
+//        MediaController mediaController = new MediaController(this);
+//        mediaController.setAnchorView(videoView);
+//        Uri video = Uri.parse(sport.getPreviewUrl());
+//        videoView.setMediaController(mediaController);
+//        videoView.setVideoURI(video);
+//        videoView.start();
     }
 }
