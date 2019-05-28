@@ -7,7 +7,7 @@ public class ServiceFactory {
 
     public static APIService getInstance() {
 
-        String baseUrl = "https://itunes.apple.com/";
+        String baseUrl = "https://www.thesportsdb.com/api/v1/json/1/all_sports.php";
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)

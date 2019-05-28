@@ -1,11 +1,11 @@
 package fesia.mega.com.music.views.songdetail;
 
-import fesia.mega.com.music.api.model.Track;
+import fesia.mega.com.music.api.model.Sport;
 
 public class SongDetailContract {
     interface View {
         void displayMessage(String message);
 
-        void displayTrack(Track track);
+        void displaySport(Sport sport);
     }
 }

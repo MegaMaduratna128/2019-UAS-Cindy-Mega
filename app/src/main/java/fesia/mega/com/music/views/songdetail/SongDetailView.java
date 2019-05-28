@@ -15,14 +15,14 @@ import android.widget.VideoView;
 import com.bumptech.glide.Glide;
 
 import fesia.mega.com.music.R;
-import fesia.mega.com.music.api.model.Track;
+import fesia.mega.com.music.api.model.Sport;
 
 public class SongDetailView extends AppCompatActivity implements SongDetailContract.View {
 
     Context context;
     LinearLayout main;
-    ImageView imgArtwork;
-    TextView txtArtistName, txtGenre, txtPrice;
+    ImageView strSportThumb;
+    TextView txtArtistName, txtGenre;
     VideoView videoView;
 
     @Override
@@ -40,7 +40,7 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
         videoView = (VideoView) findViewById(R.id.videoView);
 
         try {
-            displayTrack((Track) getIntent().getSerializableExtra("track"));
+            displaySport((Sport) getIntent().getSerializableExtra("sport"));
         } catch (Exception e) {
             displayMessage("Problem while getting song info, Try again.");
         }
@@ -63,23 +63,23 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
     }
 
     @Override
-    public void displayTrack(Track track) {
+    public void displaySport(Sport sport) {
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(track.getTrackName());
+            getSupportActionBar().setTitle(sport.getTrackName());
         }
 
-        String artworkUrl = track.getArtworkUrl100();
+        String artworkUrl = sport.getArtworkUrl100();
         Glide.with(context).load(artworkUrl).placeholder(R.drawable.ic_logo).into(imgArtwork);
 
-        txtArtistName.setText(track.getArtistName());
-        txtGenre.setText(track.getPrimaryGenreName());
-        txtPrice.setText(String.format("US $ %s", String.valueOf(track.getTrackPrice())));
+        txtArtistName.setText(sport.getArtistName());
+        txtGenre.setText(sport.getPrimaryGenreName());
+        txtPrice.setText(String.format("US $ %s", String.valueOf(sport.getTrackPrice())));
 
         MediaController mediaController = new MediaController(this);
         mediaController.setAnchorView(videoView);
-        Uri video = Uri.parse(track.getPreviewUrl());
+        Uri video = Uri.parse(sport.getPreviewUrl());
         videoView.setMediaController(mediaController);
         videoView.setVideoURI(video);
         videoView.start();

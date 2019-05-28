@@ -1,6 +1,6 @@
 package fesia.mega.com.music.api;
 
-import fesia.mega.com.music.api.model.TrackModel;
+import fesia.mega.com.music.api.model.SportModel;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Headers;
@@ -10,5 +10,5 @@ public interface APIService {
 
     @GET("search")
     @Headers("Content-Type: application/x-www-form-urlencoded")
-    Call<TrackModel> getTracks(@Query("term") String term);
+    Call<SportModel> getTracks(@Query("term") String term);
 }
