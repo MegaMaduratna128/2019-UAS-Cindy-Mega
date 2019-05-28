@@ -67,7 +67,7 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
             getSupportActionBar().setTitle(sport.getStrSport());
         }
 
-        String artworkUrl = sport.getArtworkUrl100();
+        String strSportThumb = sport.getStrSportThumb();
         Glide.with(context).load(artworkUrl).placeholder(R.drawable.ic_logo).into(imgArtwork);
 
         txtArtistName.setText(sport.getArtistName());
