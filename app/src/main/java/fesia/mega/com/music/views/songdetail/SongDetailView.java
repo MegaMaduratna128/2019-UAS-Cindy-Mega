@@ -22,8 +22,7 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
     Context context;
     LinearLayout main;
     ImageView strSportThumb;
-    TextView txtArtistName, txtGenre;
-    VideoView videoView;
+    TextView txtSportName, txtDescription;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +32,9 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
         context = SongDetailView.this;
 
         main = (LinearLayout) findViewById(R.id.song_detail_main);
-        imgArtwork = (ImageView) findViewById(R.id.imgArtworkDetail);
-        txtArtistName = (TextView) findViewById(R.id.artist_name_detail);
-        txtGenre = (TextView) findViewById(R.id.genre_detail);
-        txtPrice = (TextView) findViewById(R.id.price_detail);
-        videoView = (VideoView) findViewById(R.id.videoView);
+        strSportThumb = (ImageView) findViewById(R.id.imgArtworkDetail);
+        txtSportName = (TextView) findViewById(R.id.artist_name_detail);
+        txtDescription = (TextView) findViewById(R.id.genre_detail);
 
         try {
             displaySport((Sport) getIntent().getSerializableExtra("sport"));
@@ -67,7 +64,7 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
 
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setTitle(sport.getTrackName());
+            getSupportActionBar().setTitle(sport.getStrSport());
         }
 
         String artworkUrl = sport.getArtworkUrl100();

@@ -10,5 +10,5 @@ public interface APIService {
 
     @GET("search")
     @Headers("Content-Type: application/x-www-form-urlencoded")
-    Call<SportModel> getTracks(@Query("term") String term);
+    Call<SportModel> getSports(@Query("term") String term);
 }

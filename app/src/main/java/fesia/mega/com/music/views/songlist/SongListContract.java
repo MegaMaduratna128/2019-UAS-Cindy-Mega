@@ -2,7 +2,7 @@ package fesia.mega.com.music.views.songlist;
 
 import java.util.List;
 
-import fesia.mega.com.music.api.model.Track;
+import fesia.mega.com.music.api.model.Sport;
 
 public class SongListContract {
     interface View {
@@ -10,10 +10,6 @@ public class SongListContract {
 
         void setLoadingIndicator(boolean isLoading);
 
-        void displayTracks(List<Track> dataTracks);
-    }
-
-    interface Presenter {
-        void getTracks(String term);
+        void displaySports(List<Sport> dataSports);
     }
 }

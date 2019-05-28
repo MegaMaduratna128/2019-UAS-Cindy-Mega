@@ -17,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
-import fesia.mega.com.music.api.model.Track;
 
 import java.util.ArrayList;
 import java.util.List;

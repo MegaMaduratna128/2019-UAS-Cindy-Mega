@@ -3,6 +3,7 @@ package fesia.mega.com.music.views.songlist;
 import android.content.Context;
 import android.content.Intent;
 
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,41 +17,40 @@ import com.bumptech.glide.Glide;
 import java.util.List;
 
 import fesia.mega.com.music.R;
-import fesia.mega.com.music.api.model.Track;
+import fesia.mega.com.music.api.model.Sport;
 import fesia.mega.com.music.views.songdetail.SongDetailView;
 
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> {
 
     Context context;
-    private List<Track> trackList;
+    private List<Sport> sportList;
 
     class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout row;
-        ImageView imgTrackArtwork;
-        TextView txtTrackName, txtArtistNameNGenre, txtPrice;
+        ImageView strSportThumb;
+        TextView txtSportName, txtDescription;
 
         MyViewHolder(View view) {
             super(view);
             row = (LinearLayout) view.findViewById(R.id.song_item_row);
-            imgTrackArtwork = (ImageView) view.findViewById(R.id.artwork);
-            txtTrackName = (TextView) view.findViewById(R.id.track_name);
-            txtArtistNameNGenre = (TextView) view.findViewById(R.id.artist_name_and_genre);
-            txtPrice = (TextView) view.findViewById(R.id.price);
+            strSportThumb = (ImageView) view.findViewById(R.id.artwork);
+            txtSportName = (TextView) view.findViewById(R.id.track_name);
+            txtDescription = (TextView) view.findViewById(R.id.artist_name_and_genre);
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent detail = new Intent(context, SongDetailView.class);
-                    detail.putExtra("track", trackList.get(getAdapterPosition()));
+                    detail.putExtra("sport", (Parcelable) sportList.get(getAdapterPosition()));
                     context.startActivity(detail);
                 }
             });
         }
     }
 
-    SongAdapter(Context context, List<Track> trackList) {
+    SongAdapter(Context context, List<Sport> sportList) {
         this.context = context;
-        this.trackList = trackList;
+        this.sportList = sportList;
     }
 
     @Override
@@ -61,18 +61,17 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        Track track = trackList.get(position);
+        Sport sport = sportList.get(position);
 
-        final String artworkUrl = track.getArtworkUrl100();
-        Glide.with(context).load(artworkUrl).placeholder(R.drawable.ic_logo).into(holder.imgTrackArtwork);
+        final String strSportThumb = sport.getStrSportThumb();
+        Glide.with(context).load(strSportThumb).placeholder(R.drawable.ic_logo).into(holder.strSportThumb);
 
-        holder.txtTrackName.setText(track.getTrackName());
-        holder.txtArtistNameNGenre.setText(track.getArtistName() + " | " + track.getPrimaryGenreName());
-        holder.txtPrice.setText(String.format("US $ %s", String.valueOf(track.getTrackPrice())));
+        holder.txtSportName.setText(sport.getStrSport());
+        holder.txtDescription.setText(sport.getStrSportDescription());
     }
 
     @Override
     public int getItemCount() {
-        return trackList.size();
+        return sportList.size();
     }
 }
