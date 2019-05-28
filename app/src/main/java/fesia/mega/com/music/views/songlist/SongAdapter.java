@@ -2,7 +2,7 @@ package fesia.mega.com.music.views.songlist;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,9 +15,10 @@ import com.bumptech.glide.Glide;
 
 import java.util.List;
 
-import fesia.mega.com.music.api.model.Track;
 import fesia.mega.com.music.R;
+import fesia.mega.com.music.api.model.Track;
 import fesia.mega.com.music.views.songdetail.SongDetailView;
+
 
 public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> {
 

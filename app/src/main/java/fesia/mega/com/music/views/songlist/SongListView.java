@@ -2,10 +2,10 @@ package fesia.mega.com.music.views.songlist;
 
 import android.app.SearchManager;
 import android.content.Context;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,12 +17,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cooltechworks.views.shimmer.ShimmerRecyclerView;
+import fesia.mega.com.music.api.model.Track;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import fesia.mega.com.music.R;
-import fesia.mega.com.music.api.model.Track;
 
 public class SongListView extends AppCompatActivity implements SongListContract.View {
 

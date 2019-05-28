@@ -2,9 +2,9 @@ package fesia.mega.com.music.views.songdetail;
 
 import android.content.Context;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -64,6 +64,7 @@ public class SongDetailView extends AppCompatActivity implements SongDetailContr
 
     @Override
     public void displayTrack(Track track) {
+
         if(getSupportActionBar() != null){
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setTitle(track.getTrackName());

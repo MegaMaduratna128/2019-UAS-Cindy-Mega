@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="@dimen/material_keyline_quarter">
+    android:padding="@dimen/material_keyline_quarter"
+    android:background="@drawable/musik2">
 
     <com.cooltechworks.views.shimmer.ShimmerRecyclerView
         android:id="@+id/listSongs"
@@ -23,8 +24,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:drawablePadding="@dimen/material_keyline_quarter"
+        android:layout_marginBottom="330dp"
         android:drawableTop="@drawable/ic_music"
+        android:drawablePadding="@dimen/material_keyline_quarter"
         android:text="Search to get started.."
         android:textColor="@android:color/background_dark"
         android:textSize="@dimen/text_xlarge" />
