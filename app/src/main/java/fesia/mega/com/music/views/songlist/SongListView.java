@@ -28,7 +28,7 @@ public class SongListView extends AppCompatActivity implements SongListContract.
 
     Context context;
     LinearLayout main;
-    TextView txtNoSongs;
+    TextView txtNoSports;
     ShimmerRecyclerView listSports;
 
     private List<Sport> dataSports = new ArrayList<>();
@@ -47,9 +47,9 @@ public class SongListView extends AppCompatActivity implements SongListContract.
 
         context = SongListView.this;
 
-        main = (LinearLayout) findViewById(R.id.song_list_main);
-        txtNoSongs  = (TextView) findViewById(R.id.txtNoSongs);
-        listSports = (ShimmerRecyclerView) findViewById(R.id.listSongs);
+        main = (LinearLayout) findViewById(R.id.sport_list_main);
+        txtNoSports  = (TextView) findViewById(R.id.txtNoSports);
+        listSports = (ShimmerRecyclerView) findViewById(R.id.listSports);
 
         adapter = new SongAdapter(context, dataSports);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());

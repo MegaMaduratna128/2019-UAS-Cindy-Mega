@@ -16,7 +16,7 @@
             android:layout_height="@dimen/material_keyline_huge"
             android:layout_centerVertical="true"
             android:background="@android:color/darker_gray"
-            android:contentDescription="@string/artwork" />
+            android:contentDescription="@string/picturesport"/>
 
         <LinearLayout
             android:layout_width="match_parent"

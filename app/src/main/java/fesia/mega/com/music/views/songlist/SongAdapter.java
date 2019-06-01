@@ -29,14 +29,15 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
     class MyViewHolder extends RecyclerView.ViewHolder {
         LinearLayout row;
         ImageView strSportThumb;
-        TextView txtSportName, txtDescription;
+        TextView txtSportName;
+//        TextView txtDescription;
 
         MyViewHolder(View view) {
             super(view);
-            row = (LinearLayout) view.findViewById(R.id.song_item_row);
-            strSportThumb = (ImageView) view.findViewById(R.id.artwork);
-            txtSportName = (TextView) view.findViewById(R.id.track_name);
-            txtDescription = (TextView) view.findViewById(R.id.artist_name_and_genre);
+            row = (LinearLayout) view.findViewById(R.id.sport_item_row);
+            strSportThumb = (ImageView) view.findViewById(R.id.picturesport);
+            txtSportName = (TextView) view.findViewById(R.id.sport_name);
+//            txtDescription = (TextView) view.findViewById(R.id.artist_name_and_genre);
             row.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -67,7 +68,7 @@ public class SongAdapter extends RecyclerView.Adapter<SongAdapter.MyViewHolder> 
         Glide.with(context).load(strSportThumb).placeholder(R.drawable.ic_logo).into(holder.strSportThumb);
 
         holder.txtSportName.setText(sport.getStrSport());
-        holder.txtDescription.setText(sport.getStrSportDescription());
+//        holder.txtDescription.setText(sport.getStrSportDescription());
     }
 
     @Override
