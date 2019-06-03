@@ -6,8 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 public class SportModel {
 
-    public class Example {
-
         @SerializedName("sports")
         @Expose
         private List<Sport> sports = null;
@@ -20,5 +18,4 @@ public class SportModel {
             this.sports = sports;
         }
 
-    }
 }

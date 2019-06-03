@@ -34,11 +34,11 @@ public class SongListView extends AppCompatActivity implements SongListContract.
     private List<Sport> dataSports = new ArrayList<>();
     private SongAdapter adapter;
 
-//    SongListPresenter presenter;
+    SportListPresenter presenter;
 
-//    public SongListView() {
-//        presenter = new SongListPresenter(this);
-//    }
+    public SongListView() {
+        presenter = new SportListPresenter(this);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,46 +59,46 @@ public class SongListView extends AppCompatActivity implements SongListContract.
         listSports.setAdapter(adapter);
     }
 
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        getMenuInflater().inflate(R.menu.search, menu);
-//        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
-//        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
-//        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
-//        searchView.setQueryHint("Search for Songs, Artists & More");
-//        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-//            @Override
-//            public boolean onQueryTextSubmit(String query) {
-//                search(query);
-//                return false;
-//            }
-//
-//            @Override
-//            public boolean onQueryTextChange(String newText) {
-//                return false;
-//            }
-//        });
-//        return true;
-//    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.search, menu);
+        final SearchView searchView = (SearchView) MenuItemCompat.getActionView(menu.findItem(R.id.action_search));
+        SearchManager searchManager = (SearchManager) getSystemService(SEARCH_SERVICE);
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(getComponentName()));
+        searchView.setQueryHint("Search for Songs, Artists & More");
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                search(query);
+                return false;
+            }
 
-//    public void search(final String strTerm) {
-//        txtNoSongs.setVisibility(View.GONE);
-//        listTracks.setVisibility(View.VISIBLE);
-//
-//        dataTracks.clear();
-//        adapter.notifyDataSetChanged();
-//
-//        setLoadingIndicator(true);
-//        listTracks.postDelayed(new Runnable() {
-//            @Override
-//            public void run() {
-//                presenter.getSports(strTerm);
-//            }
-//        }, 2000);
-//    }
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        return true;
+    }
+
+    public void search(final String strTerm) {
+        txtNoSports.setVisibility(View.GONE);
+        listSports.setVisibility(View.VISIBLE);
+
+        dataSports.clear();
+        adapter.notifyDataSetChanged();
+
+        setLoadingIndicator(true);
+        listSports.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                presenter.getSports(strTerm);
+            }
+        }, 2000);
+    }
 
     @Override
-    public void displaySport(List<Sport> dataSports) {
+    public void displaySports(List<Sport> dataSports) {
         setLoadingIndicator(false);
         this.dataSports.clear();
         this.dataSports.addAll(dataSports);

@@ -12,4 +12,8 @@ public class SongListContract {
 
         void displaySports(List<Sport> dataSports);
     }
+
+    interface Presenter {
+        void getSports(String term);
+    }
 }
